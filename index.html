@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>飞翔之家大小事</title>
+  </head>
+  <body>
+    <header class="masthead">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">家</span>
+          <span>飞翔之家大小事</span>
+        </div>
+        <div class="status" id="status">已连接</div>
+      </nav>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Family journal</p>
+          <h1>一隅之家，<span>一世珍藏</span></h1>
+        </div>
+        <div class="hero-card">
+          <span id="postCount">0</span>
+          <small>条记录</small>
+        </div>
+      </section>
+    </header>
+
+    <main class="shell">
+      <section class="composer" aria-label="发布家庭记录">
+        <form id="postForm">
+          <div class="field-row">
+            <input id="title" name="title" maxlength="120" placeholder="今天发生了什么" autocomplete="off" />
+            <button type="submit" id="submitButton">发布</button>
+          </div>
+          <div class="detail-row">
+            <input id="entryDate" name="entryDate" type="date" aria-label="记录日期" />
+            <input id="author" name="author" maxlength="40" placeholder="发布人昵称" autocomplete="name" />
+          </div>
+          <textarea id="body" name="body" maxlength="4000" placeholder="写几句话，或者只放照片和视频也可以"></textarea>
+          <div class="upload-row">
+            <label class="file-button" for="media">选择图片或视频</label>
+            <input id="media" name="media" type="file" accept="image/*,video/*" multiple />
+            <span id="fileSummary">未选择文件</span>
+          </div>
+          <div class="preview-grid" id="previewGrid"></div>
+        </form>
+      </section>
+
+      <section class="filters" aria-label="筛选">
+        <button class="filter active" data-filter="all">全部</button>
+        <button class="filter" data-filter="image">图片</button>
+        <button class="filter" data-filter="video">视频</button>
+        <div class="date-search">
+          <input id="searchDate" type="date" aria-label="搜索指定日期的记录" />
+          <button type="button" id="clearDateSearch">清除日期</button>
+        </div>
+      </section>
+
+      <section class="timeline" id="timeline" aria-live="polite"></section>
+    </main>
+
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>
